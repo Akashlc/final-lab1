@@ -56,3 +56,5 @@ Route::post('/CategoryController/addcat', [CategoryController::class, 'AddCat'])
 Route::get('/CategoryController/edit{id}', [CategoryController::class, 'EditCat']);
 Route::post('/CategoryController/update{id}', [CategoryController::class, 'UpdateCat']);
 Route::get('/CategoryController/softdelete{id}', [CategoryController::class, 'SoftDeleteCat']);
+Route::get('/CategoryController/restore{id}', [CategoryController::class, 'RestoreCat']);
+Route::get('/CategoryController/delete{id}', [CategoryController::class, 'DeleteCat']);

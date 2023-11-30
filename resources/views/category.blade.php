@@ -32,7 +32,7 @@
                         <td>{{$category->created_at->diffforhumans()}}</td>
                         <td>
                             <a href="{{ url('/CategoryController/edit'.$category->id) }}" class="btn btn-info">Update</a>
-                            <a href="{{ url('/CategoryController/softdelete'.$category->id) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ url('/CategoryController/softdelete'.$category->id) }}" class="btn btn-danger">Remove</a>
                         </td>
                     </tr>
                     @endforeach
@@ -70,8 +70,8 @@
                         <td>{{$trash->category_name}}</td>
                         <td>{{$trash->deleted_at->diffforhumans()}}</td>
                         <td>
-                            <a href="" class="btn btn-info">Restore</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="{{url('/CategoryController/restore'.$trash->id)}}" class="btn btn-info">Restore</a>
+                            <a href="{{url('/CategoryController/delete'.$trash->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

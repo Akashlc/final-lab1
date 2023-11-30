@@ -42,4 +42,12 @@ Route::get('/form', function () {
     return view('form');
 })->name('form');
 
-Route::post('CategoryController', [CategoryController::class, 'add']);
+Route::get('/editForm', function () {
+    // $categories = Category::all();
+    return view('editForm');
+})->name('editForm');
+
+
+Route::post('/CategoryController/addcat', [CategoryController::class, 'AddCat']);
+Route::get('/CategoryController/edit{id}', [CategoryController::class, 'EditCat']);
+Route::post('/CategoryController/update{id}', [CategoryController::class, 'UpdateCat']);

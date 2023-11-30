@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            All Category
         </h2>
     </x-slot>
 
@@ -10,10 +10,11 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
                         <th scope="col">ID</th>
+                        <th scope="col">USER_ID</th>
+                        <th scope="col">Category Name</th>
                         <th scope="col">Created_at</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,9 +24,14 @@
                     @foreach ($categories as $category)
                     <tr>
                         <th scope="row">{{$i++}}</th>
-                        <td>{{$category->category_name}}</td>
                         <td>{{$category->user_id}}</td>
+                        <td>{{$category->category_name}}</td>
                         <td>{{$category->created_at->diffforhumans()}}</td>
+                        <td>
+                            <a href="{{ url('/CategoryController/edit'.$category->id) }}" class="btn btn-info">Update</a>
+
+                            <a href="" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

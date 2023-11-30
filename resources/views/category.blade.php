@@ -8,12 +8,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Add Category
+                Category
             </h2>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">#</th>
                         <th scope="col">USER_ID</th>
                         <th scope="col">Category Name</th>
                         <th scope="col">Created_at</th>
@@ -40,11 +40,8 @@
             </table>
         </div>
     </div>
-    <br>
-    <br>
 
-    <div class="py-12">
-
+    <div class="py-7">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <table class="table">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -52,7 +49,7 @@
                 </h2>
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">#</th>
                         <th scope="col">USER_ID</th>
                         <th scope="col">Category Name</th>
                         <th scope="col">Deleted_at</th>

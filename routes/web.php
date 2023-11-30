@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -34,7 +35,7 @@ Route::middleware([
 
 Route::get('/category', function () {
     $categories = Category::latest('created_at')->get();
-    $trashCat = Category::onlyTrashed('deleted_at')->get();
+    $trashCat = Category::onlyTrashed('deleted_at')->latest('deleted_at')->get();
     return view('category', compact('categories', 'trashCat'));
 })->name('category');
 
@@ -49,12 +50,13 @@ Route::get('/editForm', function () {
 })->name('editForm');
 
 
-
-
-
 Route::post('/CategoryController/addcat', [CategoryController::class, 'AddCat']);
 Route::get('/CategoryController/edit{id}', [CategoryController::class, 'EditCat']);
 Route::post('/CategoryController/update{id}', [CategoryController::class, 'UpdateCat']);
 Route::get('/CategoryController/softdelete{id}', [CategoryController::class, 'SoftDeleteCat']);
 Route::get('/CategoryController/restore{id}', [CategoryController::class, 'RestoreCat']);
 Route::get('/CategoryController/delete{id}', [CategoryController::class, 'DeleteCat']);
+
+
+Route::get('brand/all', [BrandController::class, 'AllBrand'])->name('brand');
+Route::post('brand/add', [BrandController::class, 'AddBrand'])->name('add.brand');

@@ -21,6 +21,9 @@
                     <x-nav-link href="{{ route('form') }}" :active="request()->routeIs('form')">
                         {{ __('Add Category') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('brand') }}">
+                        {{ __('Brands') }}
+                    </x-nav-link>
                 </div>
             </div>
 

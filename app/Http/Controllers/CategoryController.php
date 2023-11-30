@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -50,5 +51,11 @@ class CategoryController extends Controller
         $updatedCategory->save();
 
         return redirect('/category');
+    }
+
+    public function SoftDeleteCat($id)
+    {
+        Category::find($id)->delete();
+        return Redirect()->back();
     }
 }

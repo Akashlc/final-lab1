@@ -33,8 +33,9 @@ Route::middleware([
 });
 
 Route::get('/category', function () {
-    $categories = Category::all();
-    return view('category', compact('categories'));
+    $categories = Category::latest('created_at')->get();
+    $trashCat = Category::onlyTrashed('deleted_at')->get();
+    return view('category', compact('categories', 'trashCat'));
 })->name('category');
 
 Route::get('/form', function () {
@@ -48,6 +49,10 @@ Route::get('/editForm', function () {
 })->name('editForm');
 
 
+
+
+
 Route::post('/CategoryController/addcat', [CategoryController::class, 'AddCat']);
 Route::get('/CategoryController/edit{id}', [CategoryController::class, 'EditCat']);
 Route::post('/CategoryController/update{id}', [CategoryController::class, 'UpdateCat']);
+Route::get('/CategoryController/softdelete{id}', [CategoryController::class, 'SoftDeleteCat']);
